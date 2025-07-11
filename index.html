@@ -390,3 +390,91 @@
 
 </body>
 </html>
+<!-- Ícone do carrinho -->
+<div id="cart-icon">🛒 Carrinho (<span id="cart-count">0</span>)</div>
+
+<!-- Painel do carrinho -->
+<div id="cart-panel">
+  <h3>Seu Carrinho</h3>
+  <ul id="cart-items"></ul>
+  <button id="checkout-btn">Finalizar Compra</button>
+</div>
+
+<!-- ESTILO DO CARRINHO -->
+<style>
+  #cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #00c3ff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  #cart-panel {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 300px;
+    background: #111;
+    color: #eee;
+    border: 2px solid #00c3ff;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+  }
+  #cart-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #cart-panel li {
+    border-bottom: 1px solid #444;
+    padding: 5px 0;
+  }
+  #checkout-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #00c3ff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+</style>
+
+<!-- SCRIPT DO CARRINHO -->
+<script>
+  let cart = [];
+  const cartIcon = document.getElementById("cart-icon");
+  const cartPanel = document.getElementById("cart-panel");
+  const cartItems = document.getElementById("cart-items");
+  const cartCount = document.getElementById("cart-count");
+
+  cartIcon.addEventListener("click", () => {
+    cartPanel.style.display = cartPanel.style.display === "none" ? "flex" : "none";
+  });
+
+  function addToCart(productName) {
+    cart.push(productName);
+    updateCart();
+  }
+
+  function updateCart() {
+    cartItems.innerHTML = "";
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      cartItems.appendChild(li);
+    });
+    cartCount.textContent = cart.length;
+  }
+</script>
+<button onclick="addToCart('VIP Ouro')">Adicionar ao Carrinho</button>
+
