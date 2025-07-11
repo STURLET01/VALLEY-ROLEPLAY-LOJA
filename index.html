@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Valley Roleplay Loja</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b0b0b;
+    color: #eee;
+  }
+
+  header {
+    background-color: #111;
+    border-bottom: 2px solid #00c3ff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  header img {
+    max-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #00c3ff88;
+  }
+
+  nav.sidebar {
+    background-color: #111;
+    border-bottom: 2px solid #00c3ff;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  nav.sidebar button {
+    background: none;
+    border: none;
+    color: #00c3ff;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav.sidebar button:hover {
+    background-color: #002f4a;
+  }
+  nav.sidebar button.active {
+    border-bottom: 4px solid #00c3ff;
+    background-color: #004e78;
+    color: white;
+  }
+
+  main.main-content {
+    padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .inicio {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .inicio h1 {
+    color: #00c3ff;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  .inicio p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  .inicio img {
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #00c3ff88;
+  }
+
+  .categoria {
+    display: none;
+  }
+  .categoria.active {
+    display: block;
+  }
+  .categoria h2 {
+    color: #00c3ff;
+    border-bottom: 2px solid #00c3ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 20px;
+  }
+  .produto {
+    background-color: #222;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+    box-shadow: 0 0 10px #00c3ff33;
+  }
+  .produto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00c3ffaa;
+  }
+  .produto img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .produto h3 {
+    margin: 10px 0 5px;
+    color: #00c3ff;
+  }
+  .produto p {
+    font-size: 0.9rem;
+    color: #ccc;
+    min-height: 40px;
+  }
+  .produto button {
+    margin-top: 10px;
+    background-color: #00c3ff;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    color: #000;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    color: #555;
+    background: #0a0a0a;
+    font-size: 0.9rem;
+  }
+
+  /* Responsivo */
+  @media(max-width: 768px){
+    nav.sidebar button {
+      padding: 12px 15px;
+      font-size: 1rem;
+    }
+    main.main-content {
+      padding: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://cdn.discordapp.com/attachments/1090101657263626055/1110910286570867722/Valley_RP.png" alt="Valley Roleplay Logo" />
+</header>
+
+<nav class="sidebar">
+  <button class="active" data-cat="inicio">🏠 Início</button>
+  <button data-cat="vips">💳 VIPS</button>
+  <button data-cat="veiculos">🚗 Veículos</button>
+  <button data-cat="utilitarios">🚙 Utilitários</button>
+  <button data-cat="motos">🚴🏻 Motos</button>
+  <button data-cat="helicopteros">🚁 Helicópteros</button>
+  <button data-cat="gangs">🥋 GANGS</button>
+  <button data-cat="pacotes">📦 Pacotes</button>
+  <button data-cat="outros">🔎 Outros</button>
+  <button data-cat="skins">🔥 Skins</button>
+  <button data-cat="numero">📲 Número</button>
+  <button data-cat="zero">0</button>
+  <button data-cat="checkout">Checkout</button>
+</nav>
+
+<main class="main-content">
+
+  <section class="categoria active" id="inicio">
+    <div class="inicio">
+      <h1>Valley Roleplay Loja</h1>
+      <p>Bem-vindo à loja oficial do Valley Roleplay! Aqui você encontra veículos, VIPs, serviços e muito mais para melhorar sua experiência no servidor.</p>
+      <img src="https://cdn.discordapp.com/attachments/1090101657263626055/1110910286570867722/Valley_RP.png" alt="Valley Roleplay Logo" />
+    </div>
+  </section>
+
+  <section class="categoria" id="vips">
+    <h2>💳 VIPS</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=VIP+Prata" alt="VIP Prata" />
+        <h3>VIP Prata</h3>
+        <p>Comandos e privilégios básicos.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=VIP+Ouro" alt="VIP Ouro" />
+        <h3>VIP Ouro</h3>
+        <p>Mais benefícios exclusivos.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="veiculos">
+    <h2>🚗 Veículos</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Sultan" alt="Sultan" />
+        <h3>Sultan</h3>
+        <p>Carro rápido e confiável.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Elegy" alt="Elegy" />
+        <h3>Elegy</h3>
+        <p>Alta performance em curvas.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="utilitarios">
+    <h2>🚙 Utilitários</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Pickup" alt="Pickup" />
+        <h3>Pickup</h3>
+        <p>Veículo resistente para trabalho.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Van" alt="Van" />
+        <h3>Van</h3>
+        <p>Ideal para transporte de cargas.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="motos">
+    <h2>🚴🏻 Motos</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=NRG-500" alt="NRG-500" />
+        <h3>NRG-500</h3>
+        <p>Melhor moto para fugas.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=PCJ-600" alt="PCJ-600" />
+        <h3>PCJ-600</h3>
+        <p>Leve e econômica.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="helicopteros">
+    <h2>🚁 Helicópteros</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Maverick" alt="Maverick" />
+        <h3>Maverick</h3>
+        <p>Helicóptero leve e ágil.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Seasparrow" alt="Seasparrow" />
+        <h3>Seasparrow</h3>
+        <p>Ideal para missões rápidas.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="gangs">
+    <h2>🥋 GANGS</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Comando+Vermelho" alt="Comando Vermelho" />
+        <h3>Comando Vermelho</h3>
+        <p>Facção tradicional.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Terceiro+Comando" alt="Terceiro Comando" />
+        <h3>Terceiro Comando</h3>
+        <p>Facção rival.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="pacotes">
+    <h2>📦 Pacotes</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Starter+Pack" alt="Starter Pack" />
+        <h3>Starter Pack</h3>
+        <p>Itens iniciais para começar.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Pro+Pack" alt="Pro Pack" />
+        <h3>Pro Pack</h3>
+        <p>Itens avançados para jogadores experientes.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="outros">
+    <h2>🔎 Outros</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Serviço+Extra" alt="Serviço Extra" />
+        <h3>Serviço Extra</h3>
+        <p>Serviços adicionais do servidor.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="skins">
+    <h2>🔥 Skins</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Skin+Policial" alt="Skin Policial" />
+        <h3>Skin Policial</h3>
+        <p>Visual de policial.</p>
+        <button>Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Skin+Gangster" alt="Skin Gangster" />
+        <h3>Skin Gangster</h3>
+        <p>Visual de gangue.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="numero">
+    <h2>📲 Número</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x150?text=Número+VIP" alt="Número VIP" />
+        <h3>Número VIP</h3>
+        <p>Número exclusivo para seu personagem.</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categoria" id="zero">
+    <h2>0</h2>
+    <p>Categoria placeholder.</p>
+  </section>
+
+  <section class="categoria" id="checkout">
+    <h2>Checkout</h2>
+    <p>Aqui você finaliza sua compra.</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 Valley Roleplay - Todos os direitos reservados.
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('nav.sidebar button');
+  const categorias = document.querySelectorAll('.categoria');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      categorias.forEach(cat => cat.classList.remove('active'));
+
+      btn.classList.add('active');
+      const catId = btn.getAttribute('data-cat');
+      document.getElementById(catId).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
